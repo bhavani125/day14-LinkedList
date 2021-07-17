@@ -5,9 +5,9 @@ public class Runner {
         System.out.println("Welcome to LinkedList program");
         //creating object(list) for LinkedList class
         LinkedList list = new LinkedList();
-        list.addNode(70);
-        list.addNode(30);
-        list.addNode(56);
+        list.appendNode(56);
+        list.appendNode(30);
+        list.appendNode(70);
         list.print();
     }
 }

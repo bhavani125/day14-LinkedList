@@ -42,5 +42,17 @@ public class LinkedList {
         //newNode will be added before head such that head next will point to newNode
         head = newNode;
     }
-
+    //creating append method
+    public void appendNode(int data) {
+        MyNode newNode = new MyNode(data);
+        if (head == null) {
+            //If list is empty, both head and tail will point to new node
+            head = newNode;
+            tail =newNode;
+        } else {
+            //newNode will be added after tail such that tail's next will point to newNode
+            tail.next = newNode;
+            tail = newNode;
+        }
+    }
 }
