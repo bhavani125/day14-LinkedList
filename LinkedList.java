@@ -1,20 +1,11 @@
 package com.ds;
 
 public class LinkedList {
-
-    public static void main(String[] args) {
-        System.out.println("Welcome to LinkedList program");
-        LinkedList list = new LinkedList();
-        list.insert(56);
-        list.insert(30);
-        list.insert(70);
-        list.print();
-    }
     //Represent the head and tail of the linked list
     public MyNode head = null;
     public MyNode tail = null;
 
-    ///creating addNode method
+    //creating insert method
     public void insert(int data) {
         //Creating object as newNode
         MyNode newNode = new MyNode(data);
@@ -28,7 +19,7 @@ public class LinkedList {
             tail = newNode;
         }
     }
-    //creating display method
+    //creating print method
     public void print() {
         //Node current will point to head
         MyNode temp = head;
@@ -44,4 +35,12 @@ public class LinkedList {
         }
         System.out.println();
     }
+    //addNode() method here new data is added inFront of data
+    public void addNode(int data) {
+        MyNode newNode = new MyNode(data);
+        newNode.next = head;
+        //newNode will be added before head such that head next will point to newNode
+        head = newNode;
+    }
+
 }
