@@ -86,7 +86,7 @@ public class LinkedList {
         }
         return 0;
     }
-   //Creating SearchNode() to find the element
+    //Creating SearchNode() to find the element
     public void searchNode(int data) {
         MyNode current = head;
         int i = 1;
@@ -108,6 +108,30 @@ public class LinkedList {
             System.out.println("Element" + data + "is present in the list at the position : " + i);
         else
             System.out.println("Element is not present in the list");
+    }
+    //Creating deleteElement using
+    public  void  delete(int data) {
+        System.out.println("deleting a node with data " + data + "");
+        MyNode cur =  head;
+        MyNode prev = head;
+       // find the node that holds the data
+        while (cur != null && cur.data != data) {
+            // update the prev and cur references
+            prev = cur;
+            cur = cur.next;
+        }
+        // If node was found, adjust the prev node &
+        // to point to the next of the node to be deleted.
+        if (cur != null) {
+            prev.next = cur.next;
+        } else {
+            System.out.println("The data " + data + " could not be found in the List");
+        }
+    }
+    public void printSize()
+    {
+        int count = 3;
+        System.out.println("size of list: " +count );
     }
     //creating print method
     public void print() {
