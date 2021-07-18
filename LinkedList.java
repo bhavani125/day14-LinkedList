@@ -5,7 +5,8 @@ public class LinkedList {
     //Represent the head and tail of the linked list
     public MyNode head = null;
     public MyNode tail = null;
-     //creating insert method
+
+    //creating insert method
     public void insert(int data) {
         //Creating object as newNode
         MyNode newNode = new MyNode(data);
@@ -19,6 +20,7 @@ public class LinkedList {
             tail = newNode;
         }
     }
+
     //addNode() method here new data is added inFront of data
     public void addNode(int data) {
         MyNode newNode = new MyNode(data);
@@ -29,7 +31,7 @@ public class LinkedList {
 
     //creating append method
     public void appendNode(int data) {
-         MyNode newNode = new MyNode(data);
+        MyNode newNode = new MyNode(data);
         if (head == null) {
             //If list is empty, both head and tail will point to new node
             head = newNode;
@@ -40,6 +42,7 @@ public class LinkedList {
             tail = newNode;
         }
     }
+
     //creating insertMid method
     public void insertMid(int position, int data) {
         System.out.println("Added a node with data " + data + " at the position " + position);
@@ -58,8 +61,9 @@ public class LinkedList {
         //new node to point to current node
         newNode.next = cur;
     }
+
     // Creating popAtFirst() delete the first element of the linked list
-    public int popAtFirst(){
+    public int popAtFirst() {
         int popData = 0;
         if (head == null) {
             System.out.println("Stack Over Flow");
@@ -74,11 +78,10 @@ public class LinkedList {
         System.out.println("Deleting last element of data from the list");
         if (head == null) {
             System.out.println("Empty LinkedList");
-        }
-        else{
-            MyNode cur =  head;
+        } else {
+            MyNode cur = head;
             MyNode prev = head;
-            while (cur.next != null){
+            while (cur.next != null) {
                 prev = cur;
                 cur = cur.next;
             }
@@ -86,17 +89,17 @@ public class LinkedList {
         }
         return 0;
     }
+
     //Creating SearchNode() to find the element
     public void searchNode(int data) {
         MyNode current = head;
         int i = 1;
         boolean flag = false;
-        if(head == null) {
+        if (head == null) {
             System.out.println("List is empty");
-        }
-        else {
-            while(current != null) {
-                if(current.data == data) {
+        } else {
+            while (current != null) {
+                if (current.data == data) {
                     flag = true;
                     break;
                 }
@@ -104,17 +107,18 @@ public class LinkedList {
                 current = current.next;
             }
         }
-        if(flag)
+        if (flag)
             System.out.println("Element" + data + "is present in the list at the position : " + i);
         else
             System.out.println("Element is not present in the list");
     }
+
     //Creating deleteElement using
-    public  void  delete(int data) {
+    public void delete(int data) {
         System.out.println("deleting a node with data " + data + "");
-        MyNode cur =  head;
+        MyNode cur = head;
         MyNode prev = head;
-       // find the node that holds the data
+        // find the node that holds the data
         while (cur != null && cur.data != data) {
             // update the prev and cur references
             prev = cur;
@@ -128,10 +132,32 @@ public class LinkedList {
             System.out.println("The data " + data + " could not be found in the List");
         }
     }
-    public void printSize()
-    {
+
+    public void printSize() {
         int count = 3;
-        System.out.println("size of list: " +count );
+        System.out.println("size of list: " + count);
+    }
+    //Creating sortedList()
+    public void sortedList() {
+        MyNode current = head, index = null;
+        int temp;
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        } else {
+            while (current != null) {
+                index = current.next;
+                while (index != null) {
+                    if (current.data > index.data) {
+                        temp = current.data;
+                        current.data = index.data;
+                        index.data = temp;
+                    }
+                    index = index.next;
+                }
+                current = current.next;
+            }
+        }
     }
     //creating print method
     public void print() {
