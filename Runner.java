@@ -6,12 +6,11 @@ public class Runner {
         //creating object(list) for LinkedList class
         LinkedList list = new LinkedList();
         list.insert(56);
+        list.insert(30);
         list.insert(70);
-        list.insertMid(2, 30);
         list.print();
 
-        int pop = list.popAtFirst();
-        System.out.println(pop);
+        int pop = list.popAtLast();
         list.print();
     }
 }

@@ -1,6 +1,7 @@
 package com.ds;
 
 public class LinkedList {
+
     //Represent the head and tail of the linked list
     public MyNode head = null;
     public MyNode tail = null;
@@ -19,22 +20,7 @@ public class LinkedList {
         }
     }
 
-    //creating print method
-    public void print() {
-        //Node current will point to head
-        MyNode temp = head;
-        if (head == null) {
-            System.out.println("List is empty");
-            return;
-        }
-        System.out.println("Nodes of linked list is: ");
-        while (temp != null) {
-            //Prints each node by incrementing pointer
-            System.out.print(temp.data + " ");
-            temp = temp.next;
-        }
-        System.out.println();
-    }
+
 
     //addNode() method here new data is added inFront of data
     public void addNode(int data) {
@@ -61,18 +47,18 @@ public class LinkedList {
     public void insertMid(int position, int data) {
         System.out.println("Added a node with data " + data + " at the position " + position);
         MyNode newNode = new MyNode(data);
-        // Init the cur and prev nodes to the head
-        MyNode cur = this.head;
-        MyNode prev = this.head;
+        // Init the prev(56)cur(70) nodes to the head
+        MyNode prev = head;
+        MyNode cur = head;
         // traverse to the end of the list and check positions moved
         while (cur.next != null && --position > 0) {
             // update the prev and cur references
             prev = cur;
             cur = cur.next;
         }
-        // update prev to point to new node
+        //we are updating prevNode to point to the new node
         prev.next = newNode;
-        // & new node to point to current node
+        //new node to point to current node
         newNode.next = cur;
     }
     // Creating popAtFirst() delete the first element of the linked list
@@ -84,5 +70,39 @@ public class LinkedList {
         popData = head.data;
         head = head.next;
         return popData;
+    }
+
+    //Creating popAtLast() to delete the last element of the linked list
+    public int popAtLast() {
+        System.out.println("Deleting last element of data from the list");
+        if (head == null) {
+            System.out.println("Empty LinkedList");
+        }
+        else{
+            MyNode cur =  head;
+            MyNode prev = head;
+            while (cur.next != null){
+                prev = cur;
+                cur = cur.next;
+            }
+            prev.next = null;
+        }
+        return 0;
+    }
+    //creating print method
+    public void print() {
+        //Node current will point to head
+        MyNode temp = head;
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        System.out.println("Nodes of linked list is: ");
+        while (temp != null) {
+            //Prints each node by incrementing pointer
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
     }
 }

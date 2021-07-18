@@ -1,7 +1,7 @@
 package com.ds;
 
 public class MyNode {
-    int data;
+     int data;
      MyNode next;
 
     public MyNode(int data) {
