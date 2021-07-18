@@ -10,8 +10,8 @@ public class Runner {
         list.insert(70);
         list.print();
         list.searchNode(30);
-
-        int pop = list.popAtLast();
+        list.insertMid(3, 40);
         list.print();
+
     }
 }

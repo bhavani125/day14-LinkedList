@@ -19,9 +19,6 @@ public class LinkedList {
             tail = newNode;
         }
     }
-
-
-
     //addNode() method here new data is added inFront of data
     public void addNode(int data) {
         MyNode newNode = new MyNode(data);
@@ -108,7 +105,7 @@ public class LinkedList {
             }
         }
         if(flag)
-            System.out.println("Element is present in the list at the position : " + i);
+            System.out.println("Element" + data + "is present in the list at the position : " + i);
         else
             System.out.println("Element is not present in the list");
     }
